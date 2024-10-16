@@ -1,0 +1,34 @@
+# Initialisation des compteurs
+longueur_phrase = 0
+nombre_mots = 0
+nombre_voyelles = 0
+
+# Définition des voyelles pour la vérification
+voyelles = "aeiouAEIOU"
+
+# Lecture de la phrase (entrée utilisateur)
+phrase = input("Entrez une phrase terminée par un point: ")
+
+# Initialisation de la variable pour vérifier les espaces
+dans_mot = False
+
+# Parcours de chaque caractère de la phrase
+for caractere in phrase:
+    # Incrémentation de la longueur de la phrase
+    longueur_phrase += 1
+
+    # Vérification si le caractère est une voyelle
+    if caractere in voyelles:
+        nombre_voyelles += 1
+
+    # Comptage des mots (un mot commence après un espace ou en début de phrase)
+    if caractere != ' ' and not dans_mot:
+        dans_mot = True
+        nombre_mots += 1
+    elif caractere == ' ':
+        dans_mot = False
+
+# Affichage des résultats
+print(f"Longueur de la phrase: {longueur_phrase} caractères")
+print(f"Nombre de mots: {nombre_mots}")
+print(f"Nombre de voyelles: {nombre_voyelles}")
